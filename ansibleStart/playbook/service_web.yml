@@ -1,0 +1,21 @@
+- name: My first playbook
+  hosts: rhel
+  become: true
+  tasks:
+    - name: Verify nginx
+      dnf:
+        name: nginx
+        state: present
+    - name: Verify apache
+      dnf:
+        name: httpd
+        state: present
+
+- name: My second playbook
+  hosts: debian
+  become: true
+  tasks: 
+    - name: Verify apache
+      apt:
+        name: apache2
+        state: present
