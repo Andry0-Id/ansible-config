@@ -1,0 +1,12 @@
+---
+- name: Copy index.html to application servers
+  hosts: app_servers
+  become: yes
+  tasks:
+    - name: Copy index.html file to /opt/itadmin
+      ansible.builtin.copy:
+        src: /usr/src/itadmin/index.html
+        dest: /opt/itadmin/index.html
+        owner: root
+        group: root
+        mode: '0644'
